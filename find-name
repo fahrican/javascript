@@ -1,6 +1,6 @@
 /*jshint multistr:true */
 
-var text = "Hey, Fahri how are you? \ What are doing Fahri, how was your day Fahri?";
+var text = "Hey, Fahri how are you? \ What are you doing Fahri, how was your day Fahri?";
 var myName = "Fahri";
 var hits = [];
 
