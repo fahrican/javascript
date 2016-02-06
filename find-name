@@ -1,0 +1,25 @@
+/*jshint multistr:true */
+
+var text = "Hey, Fahri how are you? \ What are doing Fahri, how was your day Fahri?";
+var myName = "Fahri";
+var hits = [];
+
+for(var x = 0; x <= text.length; x++){
+ 
+    if(text[x] === 'F'){
+        
+        for(var y = x; y <= (myName.length + x); y++){
+            
+            hits.push('Fahri');
+        }
+    }
+}
+
+if(hits.length == 0){
+   
+   console.log("Your name wasn't found!"); 
+}
+else{
+    
+    console.log(hits[0]);    
+}
