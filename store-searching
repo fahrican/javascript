@@ -1,0 +1,42 @@
+/**JavaScript**/
+
+function printOut(test){
+
+	document.getElementById('mytest').innerHTML = test;
+	
+};
+
+
+var groceries = ["butter", "water", "milk", "honey", "eggs", "bread", "beef"];
+var guide;
+
+while(true){
+
+	guide = prompt("You can search for groceries, or with \"list\" you can all groceries, and with \"quit\" you can quit the program.");
+
+	if(guide.toLowerCase() === "quit"){
+
+		break;
+	}
+
+	else if(guide.toLowerCase() === "list"){
+
+		printOut(groceries.join(", "));
+
+	}
+	else{
+		if(groceries.indexOf(guide) > -1){
+
+			
+			printOut("Yes we have: " + guide + " in the store.");
+
+		}
+		else{
+
+			alert("Sorry we don't have: " + guide + " in the store.");
+		}
+
+	}
+
+
+}
