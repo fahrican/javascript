@@ -1,42 +1,39 @@
 /**JavaScript**/
 
-function printOut(test){
+// my two variables, that I need for this program
+var grocerieList = ["water", "bread", "cherries", "honey", "tomatoes"];
+var userEntry;
 
-	document.getElementById('mytest').innerHTML = test;
-	
+// the function to write in the document
+function thePrint(someThing){
+
+	document.getElementById('mytest').innerHTML = someThing;
 };
 
-
-var groceries = ["butter", "water", "milk", "honey", "eggs", "bread", "beef"];
-var guide;
-
+// here starts the main part of the program, wth an infinite loop
 while(true){
 
-	guide = prompt("You can search for groceries, or with \"list\" you can all groceries, and with \"quit\" you can quit the program.");
+	userEntry = prompt(" Press \"quit\" to close this program, press \"list\" to see all groceries, or type the name of one grocery to see, if it's in the store.");
+	userEntry = userEntry.toLowerCase();
 
-	if(guide.toLowerCase() === "quit"){
+	if(userEntry === "quit"){
 
 		break;
 	}
+	else if(userEntry === "list"){
 
-	else if(guide.toLowerCase() === "list"){
-
-		printOut(groceries.join(", "));
-
+		thePrint(grocerieList.join(", "));
 	}
 	else{
-		if(groceries.indexOf(guide) > -1){
+		// if an item is not in the array it has the value -1
+		if(grocerieList.indexOf(userEntry) > -1){
 
-			
-			printOut("Yes we have: " + guide + " in the store.");
-
+			thePrint("Yes, we have " + userEntry);
 		}
 		else{
 
-			alert("Sorry we don't have: " + guide + " in the store.");
+			thePrint("Sorry, we don't have " + userEntry);
 		}
-
 	}
-
 
 }
