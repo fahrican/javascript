@@ -1,21 +1,21 @@
 const toggleList = document.getElementById('toggleList');
+const listDiv = document.querySelector('.list');
 const buttonChangeListDesc = document.querySelector('button.description');
 const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 
 toggleList.addEventListener('click', () => {
 
-  const list = document.querySelector('.list');
-
-  if(list.style.display == 'none'){
+  if(listDiv.style.display == 'none'){
 
     toggleList.textContent = 'hide list';
-    list.style.display = 'block';
+    listDiv.style.display = 'block';
   } else {
 
     toggleList.textContent = 'show list';
-    list.style.display = 'none';    
+    listDiv.style.display = 'none';    
   }
+  
 });
 
 buttonChangeListDesc.addEventListener('click', () => {
@@ -30,6 +30,20 @@ buttonChangeListDesc.addEventListener('click', () => {
 
 }); 
 
+listDiv.addEventListener("mouseover", (event) => {
+
+  if (event.target.tagName === "LI") {
+    event.target.textContent = event.target.textContent.toUpperCase(); 
+  }
+});
+
+listDiv.addEventListener("mouseout", (event) => {
+
+  if (event.target.tagName === "LI") {
+    event.target.textContent = event.target.textContent.toLowerCase(); 
+  }
+});
+
 addItemButton.addEventListener('click', () => {
 
   const addItemInput = document.querySelector('input.addItemInput');
@@ -42,7 +56,6 @@ addItemButton.addEventListener('click', () => {
   }
 
 });
-
 
 removeItemButton.addEventListener('click', () => {
 
