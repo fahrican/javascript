@@ -36,6 +36,7 @@
  			"Ms. Julia Roberts"
  			]
  		}
+
  		]
 
  	};
@@ -81,7 +82,8 @@
  		}
  		output += "\n";
  		output += generateDashes(event.sEvent.length);
- 		
+ 		output += "\nall speakers in events.loEvents:\n\n";
+ 		output += listAllSpeakers(events);
 
  		return output;
 	}
@@ -96,6 +98,27 @@
  		return dashes;
 	}
 
+	//list all speakers in events.loEvents, but without duplicates
+	function listAllSpeakers(jsObject) {
+
+		let speakers = "";
+		let speakersArray = [];
+		for (var i = 0; i < jsObject.loEvents.length; i++) {
+			
+			jsObject.loEvents[i].lsSpeakers.forEach((eventInArray)=>{
+
+				if (speakersArray.indexOf(eventInArray) === -1) {
+					speakersArray.push(eventInArray);
+				}
+			});
+		}
+
+		speakers = speakersArray.join("; ");
+
+ 		return speakers;
+	}
+
+	// call of the function reportEvent() to display all information
  	let test2 = reportEvent("UP004");
  	textarea.textContent = test2;
  });
