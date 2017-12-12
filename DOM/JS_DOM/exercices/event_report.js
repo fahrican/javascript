@@ -70,16 +70,7 @@
  		output += "\nbegin: " + event.dtBegin;
  		output += "\nend: " + event.dtEnd;
  		output += "\nspeakers: ";
- 		for (var i = 0; i < event.lsSpeakers.length; i++) {
-
- 			if (i === (event.lsSpeakers.length-1)) {
- 				output += event.lsSpeakers[i];
- 			}
- 			else {
- 				output += event.lsSpeakers[i] + "; ";
- 			}
- 			
- 		}
+ 		output += makeLastNameAllCapital(event.lsSpeakers);
  		output += "\n";
  		output += generateDashes(event.sEvent.length);
  		output += "\nall speakers in events.loEvents:\n\n";
@@ -101,7 +92,7 @@
 	//list all speakers in events.loEvents, but without duplicates
 	function listAllSpeakers(jsObject) {
 
-		let speakers = "";
+		let speakersAll = "";
 		let speakersArray = [];
 
 		jsObject.loEvents.forEach((anEvent) => {
@@ -115,18 +106,28 @@
 
 		});
 
-		speakers = speakersArray.join("; ");
-		let speakersModification = speakers.split(" ");
+		speakersAll = makeLastNameAllCapital(speakersArray);
 
-		for (var i = 1; i < speakersModification.length; i++) {
+ 		return speakersAll;
+	}
+
+	function makeLastNameAllCapital(speakersArray){
+
+		let speakersAll = "";
+
+		for (var i = 0; i < speakersArray.length; i++) {
 			
-			if (i % 2 === 0) {
-				speakersModification[i] = speakersModification[i].toUpperCase(); 
+			let speakers = speakersArray[i].split(" ");
+			if (i !== (speakersArray.length-1)) {
+				speakers[speakers.length - 1] = speakers[speakers.length - 1].toUpperCase() + "; ";
+			} else {
+				speakers[speakers.length - 1] = speakers[speakers.length - 1].toUpperCase();
 			}
+			
+			speakersAll += speakers.join(" ");
 		}
-		speakers = speakersModification.join(" ");
 
- 		return speakers;
+		return speakersAll;
 	}
 
 	// call of the function reportEvent() to display all information
