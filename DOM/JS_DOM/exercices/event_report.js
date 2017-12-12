@@ -103,17 +103,28 @@
 
 		let speakers = "";
 		let speakersArray = [];
-		for (var i = 0; i < jsObject.loEvents.length; i++) {
+
+		jsObject.loEvents.forEach((anEvent) => {
 			
-			jsObject.loEvents[i].lsSpeakers.forEach((eventInArray)=>{
+			anEvent.lsSpeakers.forEach((eventInArray)=>{
 
 				if (speakersArray.indexOf(eventInArray) === -1) {
 					speakersArray.push(eventInArray);
 				}
 			});
-		}
+
+		});
 
 		speakers = speakersArray.join("; ");
+		let speakersModification = speakers.split(" ");
+
+		for (var i = 1; i < speakersModification.length; i++) {
+			
+			if (i % 2 === 0) {
+				speakersModification[i] = speakersModification[i].toUpperCase(); 
+			}
+		}
+		speakers = speakersModification.join(" ");
 
  		return speakers;
 	}
