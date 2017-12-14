@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
-
-
 	//first part content swap
 	let middleDiv = document.getElementById('middle');
 	let contentDiv = document.getElementById('content');
@@ -36,19 +34,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			footer.appendChild(allLis[i]);
 		}
 	}
-
-	
-	/*
-	createFooterMenu : function(){
-    var dnMenu = document.getElementById("menu");
-    var dnlsMenuItems = dnMenu.children;
-    var dnFooter = document.getElementById("footer");
-    console.log(dnlsMenuItems);
-    for (var i = 0; i < dnlsMenuItems.length; i++){
-      if (dnlsMenuItems[i].children[0].hash == "#about" || dnlsMenuItems[i].children[0].hash == "#disclaimer"){
-        dnFooter.appendChild(dnlsMenuItems[i]);
-      };
-    }
-  }*/
 
 });
