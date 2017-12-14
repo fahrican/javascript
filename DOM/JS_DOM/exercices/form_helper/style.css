@@ -1,0 +1,37 @@
+form div {
+	border : 1px solid transparent;
+	padding : 1em;
+}
+form div.focus {
+	border : 1px solid red;
+	background : #efefef;
+}
+
+.testFocus {
+	
+	border : 1px solid red;
+	background : #efefef;
+}
+
+  input
+, textarea
+, label {
+	width : 300px
+}
+textarea {
+	height : 50px;
+}
+label {
+	display : block;
+	text-transform : uppercase;
+	padding-top : 0.5em;
+}
+.counter {
+	font-size : 0.7em;
+	text-transform : uppercase;
+	padding-bottom : 0.5em;
+}
+#description {
+	font-style : italic;
+	margin-left : 1em;
+}
